@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link href="/css/tailwind/tailwind.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
+
+  <title>Shortly</title>
+</head>
+<body>
+    <h1 class="text-8xl text-center text-blue-400 mt-10 font-semibold">
+      	Shortly
+    </h1>
+
+    <div class="flex flex-col items-center mt-40">
+
+		<h2 class="mb-10 text-lg">
+			Enter an url here and get a shortened version &#128071;
+		</h2>
+
+      	<input class="border border-gray-300 focus:border-blue-400 p-2 w-72 outline-none" 
+			   type="text"
+			   id="url-input"
+			   placeholder="https://longurlexample.com/"
+		>
+
+		<button class="bg-blue-600 text-white p-2 w-72 mt-1" id="shorten-url-button">
+			Shorten
+		</button>
+
+		<span class="text-red-600 mt-5" id="error-message"></span>
+		<div class="hidden" id="shortened-url-container">
+			<div class="shadow-inner p-4 rounded">
+				<a class="underline text-blue-600 text-2xl" id="shortened-url" href="#">
+					https://localhost:3000/short_url
+				</a>
+				<button class="bg-blue-600 p-2 text-white rounded w-20 ml-5 transition duration-100" 
+						id="copy-url-button">
+					Copy
+				</button>
+			</div>
+		</div>
+    </div>
+
+	<script src="/js/shorten.js"></script>
+	<script src="/js/copyUrlButton.js"></script>
+</body>
+</html>
