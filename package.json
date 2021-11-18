@@ -6,9 +6,9 @@
   "author": "ArthurDev",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && cp ./src/views/ ./dist/",
+    "build": "tsc && cp -r ./src/views/ ./dist/",
     "dev": "ts-node-dev src/index.ts --transpile-only",
-    "start": "node src/index.js"
+    "start": "yarn build && node dist/index.js"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
