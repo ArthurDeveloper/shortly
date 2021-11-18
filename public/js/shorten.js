@@ -12,10 +12,10 @@ function validateUrl(url) {
 }
 
 function shortenUrl(url) {
-    fetch(`https://url-shortener-shortly.herokuapp.com/url/shorten?url=${url}`)
+    fetch(`https://app-shortly.herokuapp.com/url/shorten?url=${url}`)
         .then((res) => res.json())
         .then((json) => { 
-            const shortUrl = `https://url-shortener-shortly.herokuapp.com/${json.data.id}`; 
+            const shortUrl = `https://app-shortly.herokuapp.com/${json.data.id}`; 
             shortenedUrl.href = shortUrl;
             shortenedUrl.textContent = shortUrl;
             shortenedUrlContainer.classList.remove('hidden');
