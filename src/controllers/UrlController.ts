@@ -4,11 +4,20 @@ import Url from '../models/Url';
 export default class UrlController {
     static async shorten(req: Request, res: Response) {
         if (!req.query.url) {
-            return res.status(401).json({
+            return res.status(400).json({
                 error: 'You must pass the url you want to shorten as a query param'
             });
         }
-        Url.create(req.query.url as string, (err, data) => {
+
+        const url: string = req.query.url as string;
+        const urlRegex = /(https?:\/\/(?:www\.|(?!www))[A-z0-9][A-z0-9-]+[A-z0-9]\.[^\s]{2,}|www\.[A-z0-9][A-z0-9-]+[A-z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[A-z0-9]+\.[^\s]{2,}|www\.[A-z0-9]+\.[^\s]{2,})/;
+        if (!url.match(urlRegex)) {
+            return res.status(400).json({
+                error: 'You must pass a valid url'
+            });
+        }
+
+        Url.create(url as string, (err, data) => {
             if (err) {
                 console.error(err);
                 return res.status(500).json({

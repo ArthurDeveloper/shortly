@@ -14,7 +14,7 @@ app.engine('html', ejs.renderFile);
 
 app.use(routes);
 
-const port = process.env.PORT || '3000';
+const port = process.env.PORT ?? '3000';
 app.listen(port, () => {
     console.log(`Running on http://localhost:${port}`)
 });
