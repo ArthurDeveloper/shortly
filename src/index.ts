@@ -1,20 +1,11 @@
 import dotenv from 'dotenv';
-dotenv.config();
+if (process.env.NODE_ENV === 'development') {
+    dotenv.config();
+}
 
-import express from 'express';
-import path from 'path';
-import routes from './routes';
-import ejs from 'ejs';
-
-const app = express();
-
-app.use(express.static('public'));
-app.set('views', path.join(__dirname, 'views'));
-app.engine('html', ejs.renderFile);
-
-app.use(routes);
+import server from './server';
 
 const port = process.env.PORT ?? '3000';
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Running on http://localhost:${port}`)
 });
