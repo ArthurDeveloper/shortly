@@ -3,7 +3,7 @@
 - An url shortener made with nodejs.
 
 ### How to use?
-- You can just access it [here](https://url-shortener-shortly.herokuapp.com)
+- You can just access it [here](https://app-shortly.herokuapp.com/)
 - If you wanna run it locally
     - clone this repository with ``git clone https://github.com/arthurdeveloper/shortly.git``
     
